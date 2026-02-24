@@ -1,0 +1,29 @@
+name: Trading Signal Bot
+
+on:
+  workflow_dispatch:  # allows manual run
+  schedule:
+    - cron: "*/30 * * * *"  # every 30 minutes
+    - cron: "0 * * * *"     # every hour
+    - cron: "0 */4 * * *"   # every 4 hours
+
+jobs:
+  run_bot:
+    runs-on: ubuntu-latest
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Signal Bot
+        run: python scripts/signal_bot.py
