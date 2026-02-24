@@ -5,3 +5,4 @@ python-telegram-bot==22.6
 scikit-learn==1.8.0
 xgboost==3.2.0
 pyyaml
+python-telegram-bot
