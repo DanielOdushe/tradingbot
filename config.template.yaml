@@ -1,0 +1,16 @@
+timeframes:
+  - "30m"
+  - "1h"
+  - "4h"
+
+model:
+  type: "xgboost"
+  probability_threshold: 0.67
+
+risk:
+  max_drawdown: 0.20   # 20% account drawdown limit, for example
+  risk_per_trade: 0.005
+
+data:
+  source: "mt5"
+  lookback_days: 365
