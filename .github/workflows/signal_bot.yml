@@ -3,7 +3,6 @@ name: Trading Signal Bot
 on:
   workflow_dispatch:  # allows manual run
   schedule:
-    - cron: "*/30 * * * *"  # every 30 minutes
     - cron: "0 * * * *"     # every hour
     - cron: "0 */4 * * *"   # every 4 hours
 
